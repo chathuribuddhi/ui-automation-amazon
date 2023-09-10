@@ -24,7 +24,9 @@ public class BaseTest {
         if(browserName.equalsIgnoreCase("chrome")){
             WebDriverManager.chromedriver().setup();
             ChromeOptions options = new ChromeOptions();
-            options.addArguments("--headless=new");
+            options.addArguments("--headless=new"); //!!!should be enabled for Jenkins
+            options.addArguments("--disable-dev-shm-usage"); //!!!should be enabled for Jenkins
+            options.addArguments("--window-size=1920x1080"); //!!!should be enabled for Jenkins
             driver = new ChromeDriver(options);
         } else if(browserName.equalsIgnoreCase("firefox")){
             // setup firefox
